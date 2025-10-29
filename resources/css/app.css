@@ -1,0 +1,328 @@
+/* =========================================
+   SISTEMA DE CRONOGRAMA INSTITUCIONAL
+   I.E. CAMPO VALDÉS
+   Colores institucionales
+   ========================================= */
+
+/* Bootstrap */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Font Awesome */
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+/* FullCalendar */
+@import '@fullcalendar/core/main.css';
+@import '@fullcalendar/daygrid/main.css';
+@import '@fullcalendar/timegrid/main.css';
+
+/* Variables Institucionales */
+:root {
+    --color-primary-institucional: #2d5f3f;
+    --color-secondary-institucional: #4a8f5f;
+    --color-accent-institucional: #ffdd1f;
+    --color-primary-hover: #1e3f2a;
+    --color-secondary-hover: #357245;
+}
+
+/* Colores de Marca */
+.bg-primary-institucional {
+    background-color: var(--color-primary-institucional) !important;
+}
+
+.bg-secondary-institucional {
+    background-color: var(--color-secondary-institucional) !important;
+}
+
+.bg-accent-institucional {
+    background-color: var(--color-accent-institucional) !important;
+}
+
+.text-primary-institucional {
+    color: var(--color-primary-institucional) !important;
+}
+
+.text-secondary-institucional {
+    color: var(--color-secondary-institucional) !important;
+}
+
+.text-accent-institucional {
+    color: var(--color-accent-institucional) !important;
+}
+
+.border-primary-institucional {
+    border-color: var(--color-primary-institucional) !important;
+}
+
+.border-secondary-institucional {
+    border-color: var(--color-secondary-institucional) !important;
+}
+
+.border-accent-institucional {
+    border-color: var(--color-accent-institucional) !important;
+}
+
+/* Botones Institucionales */
+.btn-primary-institucional {
+    background-color: var(--color-primary-institucional);
+    border-color: var(--color-primary-institucional);
+    color: white;
+}
+
+.btn-primary-institucional:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: white;
+}
+
+.btn-secondary-institucional {
+    background-color: var(--color-secondary-institucional);
+    border-color: var(--color-secondary-institucional);
+    color: white;
+}
+
+.btn-secondary-institucional:hover {
+    background-color: var(--color-secondary-hover);
+    border-color: var(--color-secondary-hover);
+    color: white;
+}
+
+.btn-accent-institucional {
+    background-color: var(--color-accent-institucional);
+    border-color: var(--color-accent-institucional);
+    color: #333;
+}
+
+.btn-accent-institucional:hover {
+    background-color: #e6c700;
+    border-color: #e6c700;
+    color: #333;
+}
+
+.btn-outline-primary-institucional {
+    border-color: var(--color-primary-institucional);
+    color: var(--color-primary-institucional);
+}
+
+.btn-outline-primary-institucional:hover {
+    background-color: var(--color-primary-institucional);
+    border-color: var(--color-primary-institucional);
+    color: white;
+}
+
+/* Navbar */
+.navbar-dark .navbar-brand {
+    font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Cards */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover.hover-shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.card-header {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* Horarios - Grid de Cronograma */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 1px;
+    background-color: #dee2e6;
+    border: 1px solid #dee2e6;
+}
+
+.schedule-cell {
+    background-color: white;
+    padding: 10px;
+    min-height: 80px;
+    position: relative;
+}
+
+.schedule-cell-header {
+    background-color: var(--color-primary-institucional);
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px 10px;
+}
+
+.schedule-cell-time {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.schedule-block {
+    background-color: var(--color-secondary-institucional);
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.schedule-block:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+.schedule-block-empty {
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.schedule-block-empty:hover {
+    background-color: #e9ecef;
+    border-color: var(--color-primary-institucional);
+}
+
+.schedule-block-break {
+    background-color: var(--color-accent-institucional);
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Calendario */
+.fc {
+    font-family: inherit;
+}
+
+.fc-event {
+    cursor: pointer;
+}
+
+.fc-toolbar-title {
+    color: var(--color-primary-institucional);
+    font-weight: bold;
+}
+
+.fc-button-primary {
+    background-color: var(--color-primary-institucional) !important;
+    border-color: var(--color-primary-institucional) !important;
+}
+
+.fc-button-primary:hover {
+    background-color: var(--color-primary-hover) !important;
+    border-color: var(--color-primary-hover) !important;
+}
+
+/* Badges personalizados */
+.badge {
+    padding: 0.5em 0.75em;
+}
+
+/* Alertas */
+.alert {
+    border-radius: 8px;
+}
+
+/* Tablas */
+.table thead th {
+    background-color: #f8f9fa;
+    border-bottom: 2px solid var(--color-primary-institucional);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(45, 95, 63, 0.05);
+}
+
+/* Formularios */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--color-primary-institucional);
+    box-shadow: 0 0 0 0.25rem rgba(45, 95, 63, 0.25);
+}
+
+/* Drag and Drop */
+.draggable {
+    cursor: move;
+}
+
+.dragging {
+    opacity: 0.5;
+}
+
+.drop-zone {
+    border: 2px dashed var(--color-primary-institucional);
+    background-color: rgba(45, 95, 63, 0.05);
+}
+
+.drop-zone-active {
+    background-color: rgba(45, 95, 63, 0.15);
+    border-color: var(--color-secondary-institucional);
+}
+
+/* Conflict Warning */
+.conflict-warning {
+    border-left: 4px solid #dc3545;
+    background-color: #f8d7da;
+}
+
+/* Loading */
+.spinner-border-primary {
+    border-color: var(--color-primary-institucional);
+    border-right-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .schedule-grid {
+        overflow-x: auto;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+}
+
+/* Utilidades */
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
