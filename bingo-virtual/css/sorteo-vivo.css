@@ -1,0 +1,431 @@
+/* =====================================================
+   SORTEO EN VIVO - ADMIN STYLES
+   ===================================================== */
+
+.sorteo-vivo-page {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.sorteo-vivo-container {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    height: 100vh;
+    gap: 0;
+}
+
+/* Panel Izquierdo */
+.panel-izquierdo {
+    background: linear-gradient(180deg, #16213e, #0f3460);
+    border-right: 3px solid var(--color-gold);
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.sorteo-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+}
+
+.sorteo-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+/* Extractor Section */
+.extractor-section {
+    margin-bottom: 30px;
+}
+
+.extractor-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.ultimo-numero {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+    border: 3px solid var(--color-gold);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ultimo-numero.nuevo-numero {
+    animation: pulseGlow 1s ease;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.numero-display {
+    font-size: 4rem;
+    font-weight: 900;
+    color: var(--color-gold);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.letra-display {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 10px;
+    color: white;
+}
+
+.numero-display.letra-b { color: #3498db; }
+.numero-display.letra-i { color: #e74c3c; }
+.numero-display.letra-n { color: #f39c12; }
+.numero-display.letra-g { color: #2ecc71; }
+.numero-display.letra-o { color: #9b59b6; }
+
+/* Controles */
+.controles {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.modo-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-mode {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-silver);
+}
+
+.btn-mode.active {
+    background: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-gold);
+}
+
+.controles-modo {
+    margin-top: 15px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.input-group input {
+    flex: 1;
+}
+
+.narrador-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: var(--color-success);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Reclamos Section */
+.reclamos-section {
+    margin: 30px 0;
+}
+
+.reclamos-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.reclamos-list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.reclamo-item {
+    background: rgba(255, 164, 27, 0.2);
+    border: 2px solid var(--color-warning);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+    animation: slideIn 0.3s ease;
+}
+
+.reclamo-item.nuevo {
+    animation: slideInBounce 0.5s ease;
+}
+
+@keyframes slideInBounce {
+    0% {
+        transform: translateX(-100%);
+    }
+    60% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.reclamo-info {
+    margin-bottom: 10px;
+}
+
+.reclamo-info strong {
+    display: block;
+    color: var(--color-gold);
+}
+
+.reclamo-info span {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+.reclamo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.empty-text {
+    text-align: center;
+    color: var(--color-silver);
+    padding: 20px;
+}
+
+/* Control Buttons */
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+/* Panel Derecho */
+.panel-derecho {
+    background: linear-gradient(180deg, #1a1a2e, #16213e);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.numeros-extraidos-section {
+    margin-bottom: 30px;
+}
+
+.numeros-extraidos-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+}
+
+.numero-bola {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--color-silver);
+    transition: var(--transition);
+}
+
+.numero-bola.extraido {
+    background: linear-gradient(135deg, var(--color-gold), #ffa500);
+    border-color: var(--color-gold);
+    color: var(--color-dark);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Últimas Bolitas Timeline */
+.ultimas-bolitas-section {
+    margin: 30px 0;
+}
+
+.ultimas-bolitas-section h3 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.bolitas-timeline {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.bolita-timeline-item {
+    flex-shrink: 0;
+}
+
+.bolita-timeline-item.nuevo {
+    animation: slideInLeft 0.5s ease;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.bolita-numero {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    font-weight: 900;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bolita-numero.letra-b {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.bolita-numero.letra-i {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.bolita-numero.letra-n {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.bolita-numero.letra-g {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.bolita-numero.letra-o {
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+/* Premios Info */
+.premios-info {
+    margin-top: 30px;
+}
+
+.premios-info h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .sorteo-vivo-container {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .panel-izquierdo {
+        border-right: none;
+        border-bottom: 3px solid var(--color-gold);
+    }
+
+    .numeros-grid {
+        grid-template-columns: repeat(10, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .numero-display {
+        font-size: 3rem;
+    }
+
+    .numeros-grid {
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .bolita-numero {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+    }
+}

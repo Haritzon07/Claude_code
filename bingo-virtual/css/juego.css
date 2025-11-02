@@ -1,0 +1,564 @@
+/* =====================================================
+   JUEGO - JUGADOR STYLES
+   ===================================================== */
+
+.juego-page {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    min-height: 100vh;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.juego-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header del Juego */
+.juego-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.sorteo-info h1 {
+    margin: 0 0 5px 0;
+    font-size: 1.8rem;
+}
+
+.sorteo-info p {
+    margin: 0;
+    color: var(--color-silver);
+}
+
+.juego-controles {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-sound {
+    font-size: 1.5rem;
+    padding: 10px 20px;
+}
+
+/* Main Juego */
+.juego-main {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 20px;
+}
+
+/* Panel de Cartón */
+.panel-carton {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.panel-carton h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.carton-juego {
+    margin-bottom: 20px;
+}
+
+/* Bingo Table para Jugar */
+.bingo-table-juego {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bingo-table-juego thead th {
+    background: linear-gradient(135deg, var(--color-gold), #ffa500);
+    color: var(--color-dark);
+    font-size: 2rem;
+    font-weight: 900;
+    padding: 15px;
+    border: 3px solid var(--color-dark);
+}
+
+.bingo-table-juego thead th.letra-b { background: linear-gradient(135deg, #3498db, #2980b9); color: white; }
+.bingo-table-juego thead th.letra-i { background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; }
+.bingo-table-juego thead th.letra-n { background: linear-gradient(135deg, #f39c12, #e67e22); color: white; }
+.bingo-table-juego thead th.letra-g { background: linear-gradient(135deg, #2ecc71, #27ae60); color: white; }
+.bingo-table-juego thead th.letra-o { background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; }
+
+.bingo-table-juego tbody td {
+    background: rgba(255, 255, 255, 0.1);
+    border: 3px solid rgba(255, 215, 0, 0.3);
+    padding: 15px;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition);
+}
+
+.bingo-table-juego tbody td:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.bingo-table-juego tbody td.free-cell {
+    background: linear-gradient(135deg, var(--color-gold), #ffa500);
+    color: var(--color-dark);
+    font-weight: 900;
+    font-size: 1.5rem;
+    cursor: default;
+}
+
+.bingo-table-juego tbody td.extraido {
+    background: rgba(255, 215, 0, 0.3);
+    border-color: var(--color-gold);
+}
+
+.bingo-table-juego tbody td.nuevo-extraido {
+    animation: highlightNew 2s ease;
+}
+
+@keyframes highlightNew {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+    }
+}
+
+.bingo-table-juego tbody td.marcada {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    border-color: #2ecc71;
+}
+
+.bingo-table-juego tbody td .marca {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.bingo-table-juego tbody td.marcada .marca {
+    display: block;
+}
+
+.bingo-table-juego tbody td.marcada .numero-valor {
+    opacity: 0.3;
+}
+
+.bingo-table-juego tbody td.error-shake {
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Botón de BINGO */
+.btn-bingo {
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.5rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 4px 20px rgba(231, 76, 60, 0.5);
+    transition: var(--transition);
+}
+
+.btn-bingo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(231, 76, 60, 0.7);
+}
+
+.btn-bingo:active {
+    transform: scale(0.95);
+}
+
+/* Panel de Números */
+.panel-numeros {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ultimo-numero-display {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+    border: 3px solid var(--color-gold);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    text-align: center;
+}
+
+.ultimo-numero-display h3 {
+    margin: 0 0 15px 0;
+}
+
+.numero-grande {
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+}
+
+.numero-grande .numero-valor {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--color-gold);
+    text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+.numero-grande .letra-valor {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 10px;
+}
+
+.numero-grande.pulse {
+    animation: pulseBig 1s ease;
+}
+
+@keyframes pulseBig {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.numero-grande.letra-b .numero-valor { color: #3498db; }
+.numero-grande.letra-i .numero-valor { color: #e74c3c; }
+.numero-grande.letra-n .numero-valor { color: #f39c12; }
+.numero-grande.letra-g .numero-valor { color: #2ecc71; }
+.numero-grande.letra-o .numero-valor { color: #9b59b6; }
+
+/* Últimas Bolitas */
+.ultimas-bolitas {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.ultimas-bolitas h3 {
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.bolitas-scroll {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.bolita {
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bolita.nuevo {
+    animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.bolita-letra {
+    font-size: 0.9rem;
+}
+
+.bolita-numero {
+    font-size: 1.5rem;
+}
+
+/* Tablero de Números */
+.tablero-numeros {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.tablero-numeros h3 {
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.numeros-grid {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 3px;
+}
+
+.numero-mini {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-silver);
+}
+
+.numero-mini.salido {
+    background: linear-gradient(135deg, var(--color-gold), #ffa500);
+    color: var(--color-dark);
+}
+
+.numero-mini.nuevo-salido {
+    animation: flash 1s ease;
+}
+
+@keyframes flash {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Panel de Premios */
+.panel-premios {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 20px;
+}
+
+.panel-premios h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.estado-juego {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.estado-juego h3 {
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.estado-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+.estado-item .icon {
+    font-size: 1.5rem;
+}
+
+.estado-item span {
+    font-weight: 700;
+    color: var(--color-gold);
+}
+
+/* Modal de BINGO */
+.bingo-modal h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.premios-reclamo {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.premio-boton {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+    border: 2px solid var(--color-gold);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.premio-boton:hover {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.2));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.premio-boton strong {
+    display: block;
+    color: var(--color-gold);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.premio-boton span {
+    color: var(--color-silver);
+}
+
+/* Mensaje de Ganador */
+.ganador-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: fadeIn 0.5s ease;
+}
+
+.ganador-mensaje {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 5px solid var(--color-gold);
+    border-radius: 30px;
+    padding: 60px;
+    text-align: center;
+    max-width: 600px;
+    animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.ganador-mensaje h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.ganador-mensaje h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.premio-ganado {
+    font-size: 1.8rem;
+    color: var(--color-gold);
+    margin: 30px 0;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .juego-main {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-carton,
+    .panel-numeros,
+    .panel-premios {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .juego-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .bingo-table-juego thead th {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .bingo-table-juego tbody td {
+        font-size: 1.3rem;
+        padding: 10px;
+    }
+
+    .numero-grande .numero-valor {
+        font-size: 3rem;
+    }
+
+    .ganador-mensaje {
+        padding: 40px 20px;
+    }
+
+    .ganador-mensaje h1 {
+        font-size: 2rem;
+    }
+
+    .ganador-mensaje h2 {
+        font-size: 1.5rem;
+    }
+}
