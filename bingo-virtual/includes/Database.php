@@ -6,12 +6,23 @@
 if (!class_exists('Database')) {
 
 class Database {
-    private $host = DB_HOST;
-    private $db_name = DB_NAME;
-    private $username = DB_USER;
-    private $password = DB_PASS;
-    private $charset = DB_CHARSET;
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
+    private $charset;
     private $conn = null;
+
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->host = DB_HOST;
+        $this->db_name = DB_NAME;
+        $this->username = DB_USER;
+        $this->password = DB_PASS;
+        $this->charset = DB_CHARSET;
+    }
 
     /**
      * Obtener la conexión a la base de datos
