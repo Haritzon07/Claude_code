@@ -3,6 +3,8 @@
 // CLASE PARA MANEJAR LA CONEXIÓN A LA BASE DE DATOS
 // =====================================================
 
+if (!class_exists('Database')) {
+
 class Database {
     private $host = DB_HOST;
     private $db_name = DB_NAME;
@@ -99,3 +101,5 @@ class Database {
         return $this->getConnection()->rollback();
     }
 }
+
+} // End if (!class_exists('Database'))
